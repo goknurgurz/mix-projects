@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LoL Şifre Oluşturucu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">⚔️</span>
+      <span class="logo-text">LoL <span class="gold">Güvenlik</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Ana Sayfa</a></li>
+      <li><a href="#characters">Şampiyonlar</a></li>
+      <li><a href="#generator">Şifre Üret</a></li>
+      <li><a href="#tips">İpuçları</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-subtitle">League of Legends</p>
+      <h1 class="hero-title">Hesabını <span class="gold">Koru</span></h1>
+      <p class="hero-desc">Güçlü şifreler oluştur, hesabını güvende tut. Rift'te savaş, gerçek hayatta güvende ol.</p>
+      <a href="#generator" class="btn-primary">Şifre Oluştur</a>
+    </div>
+    <div class="hero-runes">
+      <div class="rune rune1">✦</div>
+      <div class="rune rune2">✦</div>
+      <div class="rune rune3">✦</div>
+      <div class="rune rune4">✦</div>
+    </div>
+  </section>
+
+  <!-- CHAMPIONS SECTION -->
+  <section class="characters" id="characters">
+    <div class="section-header">
+      <h2>Şampiyonlar <span class="gold">Sizi Bekliyor</span></h2>
+      <p>Hesabınızı güvende tutun, favori şampiyonlarınızla oynamaya devam edin</p>
+    </div>
+    <div class="champions-grid">
+
+      <div class="champion-card" data-champ="nunu">
+        <div class="champ-art nunu-art">
+          <div class="champ-emoji">🐻</div>
+          <div class="champ-glow nunu-glow"></div>
+        </div>
+        <div class="champ-info">
+          <h3>Nunu <span class="gold">&amp; Willump</span></h3>
+          <p class="champ-role">🧊 Jungler · Destek</p>
+          <p class="champ-quote">"Willump benim en iyi arkadaşım!"</p>
+          <div class="champ-stats">
+            <span class="stat">❤️ 620 HP</span>
+            <span class="stat">⚡ 340 Mana</span>
+          </div>
+          <button class="btn-champ" onclick="setChampTheme('nunu')">Tema Seç</button>
+        </div>
+      </div>
+
+      <div class="champion-card" data-champ="jinx">
+        <div class="champ-art jinx-art">
+          <div class="champ-emoji">💥</div>
+          <div class="champ-glow jinx-glow"></div>
+        </div>
+        <div class="champ-info">
+          <h3>Jinx <span class="gold">Çılgın</span></h3>
+          <p class="champ-role">🔫 Nişancı · Bot Lane</p>
+          <p class="champ-quote">"Sıkılmak mı? Asla!"</p>
+          <div class="champ-stats">
+            <span class="stat">❤️ 610 HP</span>
+            <span class="stat">⚡ 245 Mana</span>
+          </div>
+          <button class="btn-champ" onclick="setChampTheme('jinx')">Tema Seç</button>
+        </div>
+      </div>
+
+      <div class="champion-card" data-champ="yasuo">
+        <div class="champ-art yasuo-art">
+          <div class="champ-emoji">🌪️</div>
+          <div class="champ-glow yasuo-glow"></div>
+        </div>
+        <div class="champ-info">
+          <h3>Yasuo <span class="gold">Sürgün</span></h3>
+          <p class="champ-role">⚔️ Dövüşçü · Mid Lane</p>
+          <p class="champ-quote">"Bir adam ölür, bir efsane doğar."</p>
+          <div class="champ-stats">
+            <span class="stat">❤️ 490 HP</span>
+            <span class="stat">⚡ 0 Mana</span>
+          </div>
+          <button class="btn-champ" onclick="setChampTheme('yasuo')">Tema Seç</button>
+        </div>
+      </div>
+
+      <div class="champion-card" data-champ="lux">
+        <div class="champ-art lux-art">
+          <div class="champ-emoji">✨</div>
+          <div class="champ-glow lux-glow"></div>
+        </div>
+        <div class="champ-info">
+          <h3>Lux <span class="gold">Işık Hanımı</span></h3>
+          <p class="champ-role">🔮 Büyücü · Mid/Support</p>
+          <p class="champ-quote">"Demacia'nın ışığı parlar!"</p>
+          <div class="champ-stats">
+            <span class="stat">❤️ 490 HP</span>
+            <span class="stat">⚡ 480 Mana</span>
+          </div>
+          <button class="btn-champ" onclick="setChampTheme('lux')">Tema Seç</button>
+        </div>
+      </div>
+
+      <div class="champion-card" data-champ="thresh">
+        <div class="champ-art thresh-art">
+          <div class="champ-emoji">⛓️</div>
+          <div class="champ-glow thresh-glow"></div>
+        </div>
+        <div class="champ-info">
+          <h3>Thresh <span class="gold">Zincir Ustası</span></h3>
+          <p class="champ-role">🛡️ Tank · Support</p>
+          <p class="champ-quote">"Ruhlar benim koleksiyonuma katılır."</p>
+          <div class="champ-stats">
+            <span class="stat">❤️ 560 HP</span>
+            <span class="stat">⚡ 0 Mana</span>
+          </div>
+          <button class="btn-champ" onclick="setChampTheme('thresh')">Tema Seç</button>
+        </div>
+      </div>
+
+      <div class="champion-card" data-champ="ahri">
+        <div class="champ-art ahri-art">
+          <div class="champ-emoji">🦊</div>
+          <div class="champ-glow ahri-glow"></div>
+        </div>
+        <div class="champ-info">
+          <h3>Ahri <span class="gold">Dokuz Kuyruklu</span></h3>
+          <p class="champ-role">🔮 Büyücü · Mid Lane</p>
+          <p class="champ-quote">"Seni büyüleyebilirim..."</p>
+          <div class="champ-stats">
+            <span class="stat">❤️ 526 HP</span>
+            <span class="stat">⚡ 418 Mana</span>
+          </div>
+          <button class="btn-champ" onclick="setChampTheme('ahri')">Tema Seç</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PASSWORD GENERATOR -->
+  <section class="generator" id="generator">
+    <div class="gen-container">
+      <div class="gen-header">
+        <h2>🔐 Şifre <span class="gold">Oluşturucu</span></h2>
+        <p>Hesabını güvende tut — güçlü ve benzersiz şifreler oluştur</p>
+      </div>
+
+      <div class="gen-box" id="genBox">
+        <div class="champ-badge" id="champBadge">
+          <span id="champEmoji">🐻</span>
+          <span id="champName">Nunu Teması</span>
+        </div>
+
+        <div class="password-display">
+          <input type="text" id="passwordOutput" readonly placeholder="Şifreniz burada görünecek..." />
+          <button class="copy-btn" onclick="copyPassword()" title="Kopyala">
+            <span id="copyIcon">📋</span>
+          </button>
+        </div>
+
+        <div class="strength-bar-container">
+          <div class="strength-label">Şifre Gücü: <span id="strengthText">—</span></div>
+          <div class="strength-bar">
+            <div class="strength-fill" id="strengthFill"></div>
+          </div>
+        </div>
+
+        <div class="gen-options">
+          <div class="option-group">
+            <label>Uzunluk: <span id="lengthVal" class="gold">16</span></label>
+            <input type="range" id="lengthSlider" min="8" max="32" value="16" oninput="updateLength(this.value)" />
+          </div>
+
+          <div class="checkboxes">
+            <label class="checkbox-label">
+              <input type="checkbox" id="useUpper" checked />
+              <span class="checkmark"></span>
+              Büyük Harf (A-Z)
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="useLower" checked />
+              <span class="checkmark"></span>
+              Küçük Harf (a-z)
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="useNumbers" checked />
+              <span class="checkmark"></span>
+              Rakam (0-9)
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="useSymbols" checked />
+              <span class="checkmark"></span>
+              Sembol (!@#$%)
+            </label>
+          </div>
+
+          <div class="option-group">
+            <label>Şampiyona Özel Kelime <span class="optional">(isteğe bağlı)</span></label>
+            <input type="text" id="champWord" placeholder="örn: Nunu, Willump..." maxlength="10" class="text-input" />
+          </div>
+        </div>
+
+        <button class="btn-generate" onclick="generatePassword()">
+          ⚔️ Şifre Oluştur
+        </button>
+
+        <div class="password-history" id="historySection" style="display:none">
+          <h4>Son Oluşturulan Şifreler</h4>
+          <ul id="historyList"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS SECTION -->
+  <section class="tips" id="tips">
+    <div class="section-header">
+      <h2>Güvenlik <span class="gold">İpuçları</span></h2>
+      <p>Hesabını korumak için bu önerileri uygula</p>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">🔒</div>
+        <h3>Güçlü Şifre</h3>
+        <p>En az 12 karakter, büyük/küçük harf, rakam ve sembol içeren şifreler kullan.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📱</div>
+        <h3>2FA Aktif Et</h3>
+        <p>İki faktörlü doğrulamayı aktif ederek hesabına ekstra güvenlik katmanı ekle.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🚫</div>
+        <h3>Şifre Paylaşma</h3>
+        <p>Şifreni asla kimseyle paylaşma. Riot Games çalışanları da dahil olmak üzere.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🔄</div>
+        <h3>Düzenli Güncelle</h3>
+        <p>Şifreni 3-6 ayda bir güncelle ve her platform için farklı şifre kullan.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🎣</div>
+        <h3>Phishing'e Dikkat</h3>
+        <p>Sahte LoL sitelerine karşı dikkatli ol. Her zaman resmi Riot sitesini kullan.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">💾</div>
+        <h3>Şifre Yöneticisi</h3>
+        <p>Güvenilir bir şifre yöneticisi kullanarak tüm şifrelerini güvenle sakla.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <span class="logo-icon">⚔️</span>
+        <span class="logo-text">LoL <span class="gold">Güvenlik</span></span>
+      </div>
+      <p class="footer-note">Bu site yalnızca demo amaçlıdır. Riot Games ile resmi bir bağlantısı yoktur.</p>
+      <p class="footer-copy">© 2024 LoL Güvenlik Demo · Tüm hakları saklıdır</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

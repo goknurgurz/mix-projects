@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PideCi | Ramazan'ın Vazgeçilmezi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫓</text></svg>" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">🫓</span>
+        <div class="logo-text">
+          <span>PideCi</span>
+          <span>Ramazan Sofrası</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#urunler">Menü</a>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#iletisim">İletişim</a>
+        <button class="cart-btn" id="cartToggle">
+          🛒 Sepetim
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-stars" id="heroStars"></div>
+    <div class="hero-content">
+      <div class="ramadan-badge">🌙 Ramazan Özel Menüsü 2025</div>
+      <h1>Geleneksel <span>Türk Pidesi</span><br/>Kapınıza Gelsin</h1>
+      <p>
+        Ramazan'ın bereketli sofralarına yakışır, fırından taze çıkmış
+        pidelerimizle iftar sofranızı taçlandırın. Her lokmada anadolu lezzeti!
+      </p>
+      <div class="hero-btns">
+        <a href="#urunler" class="btn-primary">🫓 Sipariş Ver</a>
+        <a href="#hakkimizda" class="btn-secondary">📖 Hakkımızda</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Pide Çeşidi</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">15dk</span>
+          <span class="stat-label">Ortalama Teslimat</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">4.9⭐</span>
+          <span class="stat-label">Müşteri Puanı</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">10K+</span>
+          <span class="stat-label">Mutlu Müşteri</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features">
+    <div class="features-inner">
+      <div class="feature-card">
+        <span class="feature-icon">🔥</span>
+        <h3>Taş Fırında Pişirilir</h3>
+        <p>Geleneksel taş fırınımızda, odun ateşinde pişirilen eşsiz lezzet.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🌿</span>
+        <h3>Taze Malzemeler</h3>
+        <p>Her gün taze temin edilen, doğal ve katkısız malzemeler kullanıyoruz.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🚴</span>
+        <h3>Hızlı Teslimat</h3>
+        <p>Siparişiniz hazırlandıktan sonra 15-30 dakika içinde kapınızda.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🌙</span>
+        <h3>İftar Saatine Özel</h3>
+        <p>İftar vaktine özel erken sipariş imkânı ile sofranz hazır olsun.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="products" id="urunler">
+    <div class="products-inner">
+      <div class="section-header">
+        <span class="section-tag">🫓 Menümüz</span>
+        <h2>Pide Çeşitlerimiz</h2>
+        <p>Ramazan sofralarının vazgeçilmezi, fırından taze çıkmış pidelerimizi keşfedin.</p>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">Tümü</button>
+        <button class="filter-tab" data-filter="etli">Etli Pideler</button>
+        <button class="filter-tab" data-filter="peynirli">Peynirli Pideler</button>
+        <button class="filter-tab" data-filter="sebzeli">Sebzeli Pideler</button>
+        <button class="filter-tab" data-filter="ozel">Özel Pideler</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- Products rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="features" id="hakkimizda" style="padding: 80px 2rem;">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div class="section-header" style="margin-bottom:40px;">
+        <span class="section-tag" style="background: rgba(201,168,76,0.2); color: var(--gold-light);">🌙 Hikayemiz</span>
+        <h2 style="color:white;">Ramazan'ın Bereketini<br/>Sofralarınıza Taşıyoruz</h2>
+        <p style="color:rgba(255,255,255,0.6);">
+          1985'ten bu yana üç kuşaktır aynı taş fırında, aynı sevgiyle pide yapıyoruz.
+          Ramazan ayında her gün iftar vaktine özel taze pidelerimizi hazırlıyoruz.
+        </p>
+      </div>
+      <div class="features-inner" style="grid-template-columns: repeat(auto-fit, minmax(200px,1fr));">
+        <div class="feature-card">
+          <span class="feature-icon">🏆</span>
+          <h3>40 Yıllık Deneyim</h3>
+          <p>1985'ten bu yana aynı kalite ve lezzet anlayışıyla hizmet veriyoruz.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">👨‍🍳</span>
+          <h3>Usta Eller</h3>
+          <p>Geleneksel tarifleri yaşatan, deneyimli ustalarımız her pideyi özenle hazırlar.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🫓</span>
+          <h3>Günlük Taze Hamur</h3>
+          <p>Her sabah taze hazırlanan hamurumuzu gün içinde kullanıyoruz.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">❤️</span>
+          <h3>Sevgiyle Yapılır</h3>
+          <p>Her pide, ailenize sunacağınız bir lezzet olduğu bilinciyle hazırlanır.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="iletisim">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <span class="logo-icon">🫓</span>
+            <div class="logo-text">
+              <span>PideCi</span>
+              <span>Ramazan Sofrası</span>
+            </div>
+          </a>
+          <p>
+            Ramazan'ın bereketli sofralarına yakışır, geleneksel taş fırın pidelerimizle
+            iftar sofranızı taçlandırın. Her lokmada anadolu lezzeti!
+          </p>
+          <div class="social-links">
+            <span class="social-link">📘</span>
+            <span class="social-link">📸</span>
+            <span class="social-link">🐦</span>
+            <span class="social-link">▶️</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Menü</h4>
+          <ul>
+            <li><a href="#urunler">Etli Pideler</a></li>
+            <li><a href="#urunler">Peynirli Pideler</a></li>
+            <li><a href="#urunler">Sebzeli Pideler</a></li>
+            <li><a href="#urunler">Özel Pideler</a></li>
+            <li><a href="#urunler">Ramazan Menüsü</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kurumsal</h4>
+          <ul>
+            <li><a href="#hakkimizda">Hakkımızda</a></li>
+            <li><a href="#">Kariyer</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Basın</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>İletişim</h4>
+          <ul>
+            <li>📍 Kapalıçarşı Cd. No:12, İstanbul</li>
+            <li>📞 0212 555 44 33</li>
+            <li>✉️ info@pideci.com</li>
+            <li>🕐 Her gün 11:00 - 23:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 <span>PideCi</span>. Tüm hakları saklıdır.</p>
+        <div class="ramadan-greeting">🌙 Ramazan Mübarek Olsun ✨</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== CART SIDEBAR ===== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>🛒 Sepetim</h2>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items rendered by JS -->
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Ara Toplam</span>
+          <span id="subtotalPrice">₺0,00</span>
+        </div>
+        <div class="summary-row">
+          <span>Teslimat Ücreti</span>
+          <span id="deliveryFee">₺15,00</span>
+        </div>
+        <div class="summary-row total">
+          <span>Toplam</span>
+          <span id="totalPrice">₺0,00</span>
+        </div>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn">
+        🎉 Sipariş Ver
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== ORDER MODAL ===== -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal" id="orderModalContent">
+      <div class="modal-header">
+        <h2>🫓 Sipariş Bilgileri</h2>
+        <p>Lütfen teslimat bilgilerinizi doldurun</p>
+      </div>
+      <div class="modal-body">
+        <div class="order-summary-mini" id="orderSummaryMini">
+          <!-- Filled by JS -->
+        </div>
+        <form id="orderForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>👤 Ad Soyad</label>
+              <input type="text" id="fullName" placeholder="Adınız Soyadınız" required />
+            </div>
+            <div class="form-group">
+              <label>📞 Telefon</label>
+              <input type="tel" id="phone" placeholder="0555 123 45 67" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>📍 Teslimat Adresi</label>
+            <textarea id="address" placeholder="Mahalle, sokak, bina no, daire no..." required></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>🏙️ İlçe</label>
+              <input type="text" id="district" placeholder="İlçe" required />
+            </div>
+            <div class="form-group">
+              <label>💳 Ödeme Yöntemi</label>
+              <select id="paymentMethod" title="Ödeme Yöntemi Seçin">
+                <option value="kapida_nakit">Kapıda Nakit</option>
+                <option value="kapida_kart">Kapıda Kart</option>
+                <option value="online">Online Ödeme</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>📝 Sipariş Notu (İsteğe Bağlı)</label>
+            <textarea id="orderNote" placeholder="Özel istekleriniz, alerji bilgisi vb..."></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="modalCancel">← Geri Dön</button>
+        <button class="btn-primary" id="modalConfirm">✅ Siparişi Onayla</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SUCCESS MODAL ===== -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal">
+      <div class="success-modal">
+        <span class="success-icon">🎉</span>
+        <h2>Siparişiniz Alındı!</h2>
+        <p>
+          Siparişiniz başarıyla alındı. Ustalarımız hemen hazırlamaya başlıyor!
+          <br/><br/>
+          <strong>Tahmini Teslimat: 20-35 dakika</strong>
+          <br/>
+          🌙 Ramazan Mübarek Olsun!
+        </p>
+        <button class="btn-primary" id="successClose">🏠 Ana Sayfaya Dön</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

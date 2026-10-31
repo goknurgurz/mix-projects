@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burç ve Günlük Yorum Uygulaması</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #4b0082;
+        }
+        form {
+            margin: 20px auto;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="date"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4b0082;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6a5acd;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: left;
+            line-height: 1.5;
+            max-height: 400px; /* Uzun yorumlar için scroll */
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        #result strong {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Burç ve Günlük Yorum Uygulaması</h1>
+    <form id="birthForm">
+        <label for="birthdate">Doğum Tarihinizi Girin:</label><br>
+        <input type="date" id="birthdate" required><br>
+        <button type="submit">Hesapla</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        // Burç hesaplama fonksiyonu
+        function getZodiacSign(day, month) {
+            if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "Koç";
+            if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "Boğa";
+            if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "İkizler";
+            if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) return "Yengeç";
+            if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "Aslan";
+            if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "Başak";
+            if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) return "Terazi";
+            if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) return "Akrep";
+            if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) return "Yay";
+            if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) return "Oğlak";
+            if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "Kova";
+            if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) return "Balık";
+            return "Geçersiz tarih";
+        }
+
+        // Her burç için uzun, dedikodulu, samimi günlük yorumlar (rastgele seçilecek) – Gerçekmiş gibi, arkadaş sohbeti tarzı
+        const horoscopes = {
+            "Koç": [
+                "Hey Koç'um, otur kahveni al da dinle, bugün sanki hayatın bir dedikodu dergisi gibi! 😏 Sabah uyanır uyanmaz telefonun çalacak, eski bir arkadaşın 'Hatırlıyor musun lisedeki o skandalı? O çocuk şimdi ne yapıyor biliyor musun?' diye başlayacak ve saatlerce kıkırdayarak konuşacaksınız. İş yerinde patronun seni fark edecek, belki bir övgü gelecek ama arkandan kıskanç birileri 'Koç yine dikkat çekiyor' diye fısıldayacak – sen aldırma, senin enerjin herkesi ezer geçer! Aşk hayatına gelince, o flört ettiğin kişi bugün mesaj atabilir, 'Dün gece seni düşündüm' diyecek ama acele etme, yoksa 'Koç yine kalp kırdı' dedikodusu yayılır. Sağlığına dikkat et, bol su iç, yoksa akşam yorgun düşersin ve arkadaşlar 'Koç mu hasta?' diye endişelenir. Bugün senin günün, keyfini çıkar! 💪",
+                "Vay be Koç, bugün tam bir ateş topu gibisin, dedikodular da alev alev yanıyor! 🔥 Dün gece sosyal medyada gördüğün o eski sevgiliyi mi merak ediyorsun? Bugün ortak bir arkadaşından haber alacaksın, 'O şimdi kiminle çıkıyor biliyor musun? Aman aman, detaylar şok edici!' diye anlatacak ve kahkahalarla güleceksiniz. İş yerinde yeni bir fırsat çıkacak, sen öne çıkacaksın ama ekipte biri arkandan 'Koç hırslı çıktı' diye laf edecek – sen cool kal, zafer senin. Para konusunda şanslısın, belki bir indirim yakalayacaksın ama abartma, yoksa 'Koç paraları saçıyor' derler. Akşam belki bir buluşma var, romantik geçecek ama sırlarını sakla, dedikodu kulaktan kulağa gider. Sağlığını ihmal etme, yürüyüş yap, yarın daha enerjik ol! 😘",
+                "Ah Koç'çiğim, bugün hayatın bir film gibi, dedikodular da senaryonun parçası! 🎥 Sabah kahvaltıda bir akraban arayacak, 'Duydun mu kuzenin yeni işini? Ama arkasında neler dönüyor biliyor musun?' diye başlayacak ve saatlerce aile sırlarını paylaşacaksınız. İş yerinde liderlik edeceksin, herkes seni izleyecek ama kıskanç bir meslektaş 'Koç şov yapıyor' diye mızmızlanacak – sen gül geç. Aşkta sürpriz bir mesaj gelebilir, 'Seni özledim' diyecek biri, ama eski defterleri açma, yeni maceralar daha eğlenceli. Sağlığına özen göster, dinlen, yoksa arkadaşlar 'Koç yoruldu mu yoksa?' diye sorar. Bugün pozitif kal, her şey yoluna girecek! 🌟"
+            ],
+            "Boğa": [
+                "Boğa'cığım, hadi gel sohbet edelim, bugün sabrın altın gibi parlayacak ama dedikodular da peşinde! 😌 Sabah bir arkadaşın mesaj atacak, 'Şu komşunun yeni evi hakkında duydun mu? Parayı nereden buldu sence?' diye soracak ve finansal sırları uzun uzun konuşacaksınız. İş yerinde terfi kokusu var, sen sakin sakin ilerle ama biri arkandan 'Boğa temkinli ama hırslı' diye dedikodu yapacak – sen aldırma, senin gibi sağlam biri kazanır. Aşk hayatında romantik bir akşam yemeği planla, partnerinle eski anıları yad edin, 'Hatırlıyor musun o tatili?' diye gülüşeceksiniz. Sağlığına dikkat, lezzetli yemekler güzel ama abartma, yoksa 'Boğa kilo aldı mı?' diye laf ederler. Bugün keyfini çıkar, her şey stabil! 🍷",
+                "Hey Boğa, bugün para ve lüks dolu, dedikodular da lüks bir parti gibi! 💰 Dün alışverişte gözüne çarpan o çantayı mı istiyorsun? Bugün bir arkadaşın 'Ben de aldım, ama indirim sırrını söyleyeyim mi?' diye arayacak ve saatlerce alışveriş dedikodusu yapacaksınız. Aile içinde bir miras konusu açılabilir, 'Amcanın paraları kime kalacak?' diye tartışacaksınız. İş yerinde sakin kal, bir tartışma çıkabilir ama sen kazanacaksın. Akşam sevgilinle evde kal, 'Neler yaşadık biz?' diye samimi sohbet edin ama sırlarınızı dışarı sızdırma. Sağlığını düşün, yürüyüş yap, yoksa 'Boğa tembelleşti' derler. Harika bir gün seni bekliyor! 😊",
+                "Boğa burcu, bugün tam bir gurme gibisin, dedikodular da lezzetli! 🍲 Sabah pastanede bir tanıdıkla karşılaşacaksın, 'Duydun mu şu restoranın skandalını? Şef kiminle çıkıyormuş?' diye başlayacak ve kahve eşliğinde uzun sohbet edeceksiniz. İş yerinde finansal bir fırsat çıkacak, sen detaylara hakim olacaksın ama kıskanç biri 'Boğa yine hesap yapıyor' diye fısıldayacak. Aşkta stabilite var, sürpriz bir hediye gelebilir, 'Seni düşündüm' diyecek partnerin. Sağlığına özen göster, sağlıklı beslen, yoksa arkadaşlar 'Boğa dikkat et kendine' diye uyarır. Bugün huzurlu geçsin! 🌿"
+            ],
+            "İkizler": [
+                "İkizler'im, bugün iletişim patlaması yaşayacaksın, dedikodular havada uçuşuyor gibi! 📱 Sabah telefonun susmayacak, bir arkadaş 'Duydun mu şu ünlü çifti? Ayrılmışlar, detaylar inanılmaz!' diye başlayacak ve saatlerce magazin sohbeti yapacaksınız. İş yerinde yeni fikirler üreteceksin, herkes seni dinleyecek ama biri 'İkizler yine kararsız' diye arkandan konuşacak – sen gül geç, senin zekan herkesi ezer. Aşkta flört dolu, belki birden fazla mesaj alacaksın, 'Ne eğlenceliydin dün!' diyecek biri. Sağlığına dikkat, stres yapma, yoksa 'İkizler yoruldu mu?' derler. Bugün sosyal ol, keyfini çıkar! 😂",
+                "Vay İkizler, bugün sosyal kelebek gibisin, dedikodular da kelebek gibi uçuşuyor! 🦋 Dün gece partide tanıştığın o kişi bugün arayacak, 'Ne komik anılardı, daha anlatayım mı?' diyecek ve uzun bir sohbet başlayacak. Arkadaş grubunda bir sır paylaşılacak, 'Kimin kiminle çıktığını biliyor musun?' diye heyecanlanacaksınız – sen de katıl, eğlenceli! İş yerinde toplantılar yoğun, sen parlayacaksın. Akşam bir buluşma olabilir, 'Hayatın nasıl?' diye derinleşecek. Sağlığını ihmal etme, dinlen! 😄",
+                "İkizler burcu, bugün tam bir sohbet makinesi, dedikodular da makine gibi çalışıyor! ☎️ Sabah kahve içerken eski bir dost arayacak, 'Okul arkadaşlarımızın son dedikodularını duydun mu? Kim evlenmiş, kim ayrılmış!' diye anlatacak ve kahkahalarla güleceksiniz. İş yerinde yenilikçi bir fikir sunacaksın, ama rekabet var – dikkat et. Aşk hayatında kararsızlık olabilir, ama eğlenceli bir flört seni bekliyor, 'Seni gördüm rüyamda' diye mesaj gelecek. Sağlığını düşün, yürüyüş yap, yoksa 'İkizler stresli mi?' diye sorarlar. Harika bir gün! 🌈"
+            ],
+            "Yengeç": [
+                "Yengeç'çiğim, bugün duygusal dalgalar yüksek, dedikodular da dalga dalga geliyor! 🌊 Sabah ailenle konuşacaksın, 'Kuzenin düğünü hakkında duydun mu? Arkasında neler dönüyor sence?' diye soracaklar ve saatlerce aile sırlarını paylaşacaksınız. İş yerinde güvenlik arayacaksın, ama bir değişiklik gelebilir – sakin kal. Aşkta derin sohbetler olacak, partnerinle 'Eski anılarımızı hatırlıyor musun?' diye yakınlaşacaksınız. Sağlığına dikkat, duygusal yorgunluk olmasın, yoksa 'Yengeç üzgün mü?' derler. Bugün evinde kal, huzur bul! 🏡",
+                "Ah Yengeç, bugün ev ve aile odaklısın, dedikodular da aile yemeği gibi samimi! 🍲 Dün gece rüyanda gördüğün o eski evi mi özledin? Bugün bir akraban arayacak ve 'Nostaljik dedikodular yapalım mı? Kim ne yapıyor?' diye saatlerce konuşacaksınız. İş yerinde duygusal destek bulacaksın, ama biri arkandan konuşabilir. Akşam evde romantik bir gece geçir, sevgilinle sırlarını paylaş, 'Seni seviyorum' diyecek. Sağlığını düşün, dinlen! 😌",
+                "Yengeç burcu, bugün tam bir koruyucu, dedikodular da koruyucu kalkan gibi! 🛡️ Sabah bir arkadaşın dertleşmek için gelecek, 'Hayatındaki son gelişmeleri anlatayım mı? Aman, şok olacaksın!' diye uzun uzun konuşacaksınız. İş yerinde stabilite var, ama sürpriz bir haber gelebilir. Aşk hayatında güven önemli, yeni bir bağ kurulabilir, 'Bana ihtiyacın var mı?' diye soracak biri. Sağlığını düşün, su iç bol bol! 🌙"
+            ],
+            "Aslan": [
+                "Aslan'ım, bugün spot ışıkları altında parlayacaksın, dedikodular da senin hakkında dönüyor! 🌟 Sabah bir hayran mesajı alacaksın, 'Ne kadar karizmatiksin, dün geceki hikayeni anlatayım mı?' diyecek ve sohbet uzayacak. İş yerinde liderlik edeceksin, ama kıskançlık olacak – aldırma. Aşkta tutkulu bir gün, flörtler havada, 'Seni gördüm rüyamda' diye mesaj gelecek. Sağlığına dikkat, enerjini yönet, yoksa 'Aslan yoruldu mu?' derler! 👑",
+                "Vay Aslan, bugün kral/kraliçe gibisin, dedikodular da saray entrikası gibi! 🏰 Dün partideki performansın hakkında herkes konuşuyor, bugün övgüler yağacak, 'Aslan yine yıldız!' diyecekler. Arkadaş grubunda dedikodu dönecek, sen merkezde olacaksın. İş yerinde başarı var, ama dikkat et. Akşam romantik bir randevu seni bekliyor, 'Ne kadar çekicisin' diyecek biri. Sağlığını ihmal etme! 😎",
+                "Aslan burcu, bugün tam bir yıldız, dedikodular da magazin gibi! 📸 Sabah sosyal medyada beğeniler yağacak, birileri 'Aslan şov yapıyor' diye fısıldayacak. İş yerinde terfi konuşulabilir, heyecanlı. Aşk hayatında drama olabilir, ama sen kazanacaksın, 'Seni özledim' diye arayan olacak. Sağlığını düşün! 🔥"
+            ],
+            "Başak": [
+                "Başak'cığım, bugün detaylara odaklanacaksın, dedikodular da detaylı analiz gibi! 🔍 Sabah bir meslektaşın arayacak, 'Projedeki hatayı duydun mu? Arkasında kim var sence?' diye soracak ve uzun analiz yapacaksınız. İş yerinde mükemmellik peşindesin, başarı gelecek. Aşkta pratik ol, ama romantizmi unutma, 'Planlarımızı konuşalım mı?' diye mesaj gelecek. Sağlığına özen göster, yoksa 'Başak stresli mi?' derler

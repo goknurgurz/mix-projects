@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Dünyası - Butik Tatlıcı Dükkanı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 50%, #FF69B4 100%);
+            min-height: 100vh;
+            color: #4A4A4A;
+        }
+
+        header {
+            background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,182,193,0.9) 100%);
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+            border-bottom: 4px solid #FF69B4;
+        }
+
+        header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5em;
+            color: #FF1493;
+            text-shadow: 3px 3px 6px rgba(255, 105, 180, 0.4);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.3em;
+            color: #C71585;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5em;
+            color: #FFF;
+            text-shadow: 2px 2px 4px rgba(199, 21, 133, 0.5);
+            margin-bottom: 40px;
+        }
+
+        .sweets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .sweet-card {
+            background: linear-gradient(145deg, #FFF0F5 0%, #FFFFFF 50%, #FFE4E1 100%);
+            border-radius: 25px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.25);
+            border: 3px solid #FFB6C1;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sweet-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .sweet-card:hover::before {
+            opacity: 1;
+        }
+
+        .sweet-card:hover {
+            transform: perspective(1000px) rotateY(15deg) translateY(-10px);
+            box-shadow: 0 25px 50px rgba(255, 105, 180, 0.4);
+            border-color: #FF69B4;
+        }
+
+        .sweet-image-container {
+            width: 100%;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+            border: 4px solid #FFC0CB;
+        }
+
+        .sweet-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .sweet-card:hover .sweet-image-container img {
+            transform: scale(1.1);
+        }
+
+        .sweet-card h3 {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.8em;
+            color: #FF1493;
+            margin-bottom: 10px;
+        }
+
+        .sweet-card p {
+            color: #8B008B;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .sweet-price {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .btn-details {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFC0CB 0%, #FFB6C1 100%);
+            color: #C71585;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 15px;
+            border: 2px solid #FF69B4;
+            transition: all 0.3s ease;
+        }
+
+        .btn-details:hover {
+            background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,182,193,0.9) 100%);
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-top: 4px solid #FF69B4;
+        }
+
+        footer p {
+            color: #C71585;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            
+            .sweet-card:hover {
+                transform: perspective(1000px) rotateY(5deg) translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🍪 Cookie Dünyası 🍰</h1>
+        <p>El yapımı, özenle hazırlanmış tatlılar...</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Tatlılarımız</h2>
+        
+        <div class="sweets-grid">
+            <!-- Çikolatalı Kurabiye -->
+            <div class="sweet-card" onclick="window.location.href='detail1.html'">
+                <div class="sweet-image-container">
+                    <img src="https://www.ardaninmutfagi.com/wp-content/uploads/2022/06/cikolatali-kurabiye-i3.jpg" alt="Çikolatalı Kurabiye">
+                </div>
+                <h3>Çikolatalı Kurabiye</h3>
+                <p>Dışı çıtır, içi yumuşak çikolata parçacıklarıyla dolu...</p>
+                <span class="sweet-price">25 TL</span><br>
+                <a href="detail1.html" class="btn-details">Detayları Gör</a>
+            </div>
+
+            <!-- Vanilyalı Pasta -->
+            <div class="sweet-card" onclick="window.location.href='detail2.html'">
+                <div class="sweet-image-container">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop" alt="Vanilyalı Pasta">
+                </div>
+                <h3>Vanilyalı Pasta</h3>
+                <p>Klasik vanilya tadıyla, yumuşak ve kremsi dokusuyla...</p>
+                <span class="sweet-price">85 TL</span><br>
+                <a href="detail2.html" class="btn-details">Detayları Gör</a>
+            </div>
+
+            <!-- Meyveli Tart -->
+            <div class="sweet-card" onclick="window.location.href='detail3.html'">
+                <div class="sweet-image-container">
+                    <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=600&h=400&fit=crop" alt="Meyveli Tart">
+                </div>
+                <h3>Meyveli Tart</h3>
+                <p>Taze meyvelerle süslenmiş, hafif ve ferahlatıcı tadıyla...</p>
+                <span class="sweet-price">65 TL</span><br>
+                <a href="detail3.html" class="btn-details">Detayları Gör</a>
+            </div>
+
+            <!-- Çilekli Cheesecake -->
+            <div class="sweet-card" onclick="window.location.href='detail4.html'">
+                <div class="sweet-image-container">
+                    <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600&h=400&fit=crop" alt="Çilekli Cheesecake">
+                </div>
+                <h3>Çilekli Cheesecake</h3>
+                <p>Krem peynirli tabanı ve taze çilek sosuyla mükemmel uyum...</p>
+                <span class="sweet-price">75 TL</span><br>
+                <a href="detail4.html" class="btn-details">Detayları Gör</a>
+            </div>
+
+            <!-- Macaron -->
+            <div class="sweet-card" onclick="window.location.href='detail5.html'">
+                <div class="sweet-image-container">
+                    <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600&h=400&fit=crop" alt="Macaron">
+                </div>
+                <h3>Macaron</h3>
+                <p>Fransız usulü hazırlanmış, renkli ve zarif lezzetler...</p>
+                <span class="sweet-price">15 TL (adet)</span><br>
+                <a href="detail5.html" class="btn-details">Detayları Gör</a>
+            </div>
+
+            <!-- Brownie -->
+            <div class="sweet-card" onclick="window.location.href='detail6.html'">
+                <div class="sweet-image-container">
+                    <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?w=600&h=400&fit=crop" alt="Brownie">
+                </div>
+                <h3>Brownie</h3>
+                <p>Yoğun çikolata tadıyla, fındık parçacıklarıyla zenginleştirilmiş...</p>
+                <span class="sweet-price">30 TL</span><br>
+                <a href="detail6.html" class="btn-details">Detayları Gör</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>🍰 Cookie Dünyası © 2024 | Tüm Hakları Saklıdır</p>
+        <p>📍 Atatürk Cad. No:123, İstanbul | 📞 0212 123 45 67</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    background: #f2f0fa;
+  }
+  
+  /* Sağdaki koyu günlük kutusu */
+  .log-karti {
+    background: #0e1022;
+    color: #c9ccf5;
+    border-color: #262a52;
+    min-height: 300px;
+  }
+  
+  #log {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 420px;
+    overflow: auto;
+    font-family: Consolas, monospace;
+  }
+  
+  /* En son yazılan satır sarı görünsün */
+  #log li:first-child {
+    color: #ffc857;
+    font-weight: 600;
+  }
+  
+  /* Tamamlanan görevler */
+  .list-group-item.gorev-bitti {
+    border-left: 5px solid #1fa67a;
+  }
+  .gorev-bitti .metin {
+    text-decoration: line-through;
+    color: #8a87a8;
+  }
+  
+  /* Liste boşken görünen kutu */
+  .bos {
+    text-align: center;
+    padding: 22px 8px;
+    color: #6b6890;
+    border: 2px dashed #ddd9f2;
+    border-radius: 12px;
+  }
